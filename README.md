@@ -4,7 +4,7 @@ ChainableLED
 Arduino library compatible with Grove Chainable LED and the P9813 chip. It allows controlling a chain of LEDS individually. 
 Supports both RGB and HSB color spaces for setting the color of each individual LED.
 
-[More information on the wiki](https://github.com/pjpmarques/ChainableLED/wiki).
+[More information on the wiki](https://github.com/pjpmarques/ChainableLED/wiki)
 
 
 Installation

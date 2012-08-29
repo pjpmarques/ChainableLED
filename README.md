@@ -26,4 +26,4 @@ Library Interface
 
         void setColorRGB(byte led, byte red, byte green, byte blue);
         void setColorHSB(byte led, float hue, float saturation, float brightness);
-     }
+    }

@@ -9,7 +9,7 @@ Supports both RGB and HSB color spaces for setting the color of each individual 
 
 Installation
 ============
-1. Grab the latest version from the download section of GitHub
+1. Grab the latest version from the download section of GitHub.
 (https://github.com/pjpmarques/ChainableLED/downloads)
 
 2. Unzip it to your Arduino "libraries" directory. 

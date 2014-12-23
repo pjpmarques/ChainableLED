@@ -12,6 +12,7 @@ ChainableLED leds(7, 8, NUM_LEDS);
 
 void setup()
 {
+  leds.init();
 }
 
 byte pos = 0;

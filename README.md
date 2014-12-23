@@ -24,6 +24,7 @@ Library Interface
       public:
         ChainableLED(byte clk_pin, byte data_pin, byte number_of_leds);
 
+        void init();
         void setColorRGB(byte led, byte red, byte green, byte blue);
         void setColorHSB(byte led, float hue, float saturation, float brightness);
     }

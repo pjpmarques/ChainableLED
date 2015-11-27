@@ -32,7 +32,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #ifndef __ChainableLED_h__
 #define __ChainableLED_h__
 
-#include "Arduino.h"
+#if defined (SPARK)
+  #include "application.h"
+#else
+  #include "Arduino.h"
+#endif
 
 #define _CL_RED             0
 #define _CL_GREEN           1

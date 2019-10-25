@@ -1,7 +1,7 @@
 
 /* 
  * Example of using the ChainableRGB library for controlling a Grove RGB.
- * This code cycles through all the colors in an uniform way. This is accomplished using a HSB color space. 
+ * This code cycles through all the colors in an uniform way. This is accomplished using a HSL color space. 
  */
 
 
@@ -22,7 +22,7 @@ boolean up = true;
 void loop()
 {
   for (byte i=0; i<NUM_LEDS; i++)
-    leds.setColorHSB(i, hue, 1.0, 0.5);
+    leds.setColorHSL(i, hue, 1.0, 0.5);
     
   delay(50);
     

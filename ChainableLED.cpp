@@ -131,23 +131,23 @@ void ChainableLED::setColorRGB(byte led, byte red, byte green, byte blue)
     sendByte(0x00);
 }
 
-void ChainableLED::setColorHSB(byte led, float hue, float saturation, float brightness)
+void ChainableLED::setColorHSL(byte led, float hue, float saturation, float lightness)
 {
     float r, g, b;
     
     constrain(hue, 0.0, 1.0);
     constrain(saturation, 0.0, 1.0);
-    constrain(brightness, 0.0, 1.0);
+    constrain(lightness, 0.0, 1.0);
 
     if(saturation == 0.0)
     {
-        r = g = b = brightness;
+        r = g = b = lightness;
     }
     else
     {
-        float q = brightness < 0.5 ? 
-            brightness * (1.0 + saturation) : brightness + saturation - brightness * saturation;
-        float p = 2.0 * brightness - q;
+        float q = lightness < 0.5 ? 
+            lightness * (1.0 + saturation) : lightness + saturation - lightness * saturation;
+        float p = 2.0 * lightness - q;
         r = hue2rgb(p, q, hue + 1.0/3.0);
         g = hue2rgb(p, q, hue);
         b = hue2rgb(p, q, hue - 1.0/3.0);

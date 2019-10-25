@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map For Ultrasound
+# Syntax Coloring Map For ChainnableLED
 #######################################
 
 #######################################
@@ -12,7 +12,7 @@ ChainableLED	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 setColorRGB	KEYWORD2
-setColorHSB	KEYWORD2
+setColorHSL	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

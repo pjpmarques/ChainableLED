@@ -51,7 +51,7 @@ public:
     
     void init();
     void setColorRGB(byte led, byte red, byte green, byte blue);
-    void setColorHSB(byte led, float hue, float saturation, float brightness);
+    void setColorHSL(byte led, float hue, float saturation, float lightness);
 
 private:
     byte _clk_pin;

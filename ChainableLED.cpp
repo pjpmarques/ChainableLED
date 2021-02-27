@@ -68,14 +68,11 @@ void ChainableLED::clk(void)
 
 void ChainableLED::sendByte(byte b)
 {
-    // Send one bit at a time, starting with the MSB
-    for (byte i=0; i<8; i++)
+    // Send one bit at a time, starting with the MSB (bit 7)
+    for (int i=7; i>=0; i--)
     {
-        // If MSB is 1, write one and clock it, else write 0 and clock
-        if ((b & 0x80) != 0)
-            digitalWrite(_data_pin, HIGH);
-        else
-            digitalWrite(_data_pin, LOW);
+        // send i-th bit and clock it
+        digitalWrite(_data_pin,(b>>i)&1);
         clk();
 
         // Advance to the next bit to send
@@ -86,13 +83,11 @@ void ChainableLED::sendByte(byte b)
 void ChainableLED::sendColor(byte red, byte green, byte blue)
 {
     // Start by sending a byte with the format "1 1 /B7 /B6 /G7 /G6 /R7 /R6"
-    byte prefix = 0b11000000;
-    if ((blue & 0x80) == 0)     prefix|= 0b00100000;
-    if ((blue & 0x40) == 0)     prefix|= 0b00010000; 
-    if ((green & 0x80) == 0)    prefix|= 0b00001000;
-    if ((green & 0x40) == 0)    prefix|= 0b00000100;
-    if ((red & 0x80) == 0)      prefix|= 0b00000010;
-    if ((red & 0x40) == 0)      prefix|= 0b00000001;
+    byte prefix =  0xC0                 //first to bits are set
+                | (( ~blue  &0xC0)>>2)  //flip 2 most significant bits of r and move to protocol specified location
+                | (( ~green &0xC0)>>4)  //flip 2 most significant bits of g and move to protocol specified location
+                | (( ~red   &0xC0)>>6); //flip 2 most significant bits of b and move to protocol specified location
+        
     sendByte(prefix);
         
     // Now must send the 3 colors

@@ -72,7 +72,7 @@ void ChainableLED::sendByte(byte b)
     for (int i=7; i>=0; i--)
     {
         // send i-th bit and clock it
-        digitalWrite(_data_pin,(b>>i)&1)
+        digitalWrite(_data_pin,(b>>i)&1);
         clk();
 
         // Advance to the next bit to send
@@ -86,7 +86,7 @@ void ChainableLED::sendColor(byte red, byte green, byte blue)
     byte prefix =  0xC0                 //first to bits are set
                 | (( ~blue  &0xC0)>>2)  //flip 2 most significant bits of r and move to protocol specified location
                 | (( ~green &0xC0)>>4)  //flip 2 most significant bits of g and move to protocol specified location
-                | (( ~red   &0xC0)>>6)  //flip 2 most significant bits of b and move to protocol specified location
+                | (( ~red   &0xC0)>>6); //flip 2 most significant bits of b and move to protocol specified location
         
     sendByte(prefix);
         
